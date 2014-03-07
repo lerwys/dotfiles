@@ -5,6 +5,25 @@
 " Last Change: 2011 Sep 27
 " URL:         http://www.vim.org/scripts/script.php?script_id=1450
 
+" Modified section
+"
+" marks the 80th column with red
+set colorcolumn=80
+
+" tabs/spaces for indentation
+set tabstop=2     " tab width
+set softtabstop=2 " tab width
+set shiftwidth=2  " indent
+set expandtab
+         
+" trailing whitespaces
+highlight BadWhitespace ctermbg=red guibg=red
+match BadWhitespace /\s\+$/       " make trailing whitespace be flagged
+au BufWritePre *,*.* :%s/\s\+$//e " deletes trailing whites when saving files
+
+"
+" End of modified section
+
 " only load this indent file when no other was loaded
 if exists("b:did_indent")
   finish
