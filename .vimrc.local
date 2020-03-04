@@ -28,3 +28,6 @@ set guifont=Monospace\ 14
 
 " Generate ctags
 au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+
+" Associate .in files with texinfo
+autocmd BufRead,BufNewFile *.in set filetype=texinfo
