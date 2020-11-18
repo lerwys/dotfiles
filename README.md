@@ -3,16 +3,18 @@ Personal dotfiles
 
 # Overview
 
-Personal dotfiles. To install .vimrc do:
+Personal dotfiles.
 
-```bash
+# Installation Intructions
+
+Simply copy your .vimrc to your home:
+
 1. cp .vimrc ~/.vimrc
-```
 
-```bash
+Install deoplete dependencies:
+
 2. pip3 install neovim --user
-```
 
-```bash
+Install all included plugins:
+
 3. vim +PluginInstall +qall
-```
