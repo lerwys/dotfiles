@@ -3,5 +3,16 @@ Personal dotfiles
 
 # Overview
 
-Personal dotfiles for usage with spf13 vim distribution
-(https://github.com/spf13/spf13-vim)
+Personal dotfiles. To install .vimrc do:
+
+```bash
+1. cp .vimrc ~/.vimrc
+```
+
+```bash
+2. pip3 install neovim --user
+```
+
+```bash
+3. vim +PluginInstall +qall
+```
