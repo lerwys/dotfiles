@@ -145,9 +145,6 @@ set softtabstop=4     " tab stops are 4 spaces
 set shiftwidth=4      " tab stops are 4 spaces
 set expandtab         " tab stops become spaces
 
-" always displays file name, current line and column number
-set laststatus=2
-
 set wildmode=longest,list,full " filename auto-completion works bash-like
 set wildmenu " when hits to complete full name, shows list of filenames
 
@@ -269,13 +266,17 @@ nnoremap <F2> :%s/\s\+$//e<CR>
 " STATUS LINE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set statusline=\ %f\  " file name
-set statusline+=-\  " separator
-set statusline+=FileType:\  " label
-set statusline+=%y\  "file type
-set statusline+=%m%r\  " shows modified file or read-only
-set statusline+=%= " change side
-set statusline+=%3c,%5l/%L\  " show current column, current line/total lines
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=\ [%{getcwd()}]          " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTO COMMANDS
