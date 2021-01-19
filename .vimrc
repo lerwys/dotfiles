@@ -69,6 +69,7 @@ Plugin 'powerline/fonts'
 
 " Git plugins
 Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
 
 " Python plugins
 Plugin 'tmhedberg/SimpylFold'
