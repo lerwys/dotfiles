@@ -57,12 +57,23 @@ endif
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 
+if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+    Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
+    Plugin 'Lokaltog/vim-powerline'
+else
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+endif
+Plugin 'powerline/fonts'
+
 " Git plugins
 Plugin 'tpope/vim-fugitive'
 
 " Python plugins
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'integralist/vim-mypy'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -276,6 +287,30 @@ if has('statusline')
     set statusline+=\ [%{&ff}/%Y]            " Filetype
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set configuration options for the statusline plugin vim-airline.
+" Use the powerline theme and optionally enable powerline symbols.
+" To use the symbols , , , , , , and .in the statusline
+" segments add the following to your .vimrc.before.local file:
+"   let g:airline_powerline_fonts=1
+" If the previous symbols do not render for you then install a
+" powerline enabled font.
+
+" See `:echo g:airline_theme_map` for some more choices
+" Default in terminal vim is 'dark'
+if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
+    if !exists('g:airline_theme')
+        let g:airline_theme = 'solarized'
+    endif
+    if !exists('g:airline_powerline_fonts')
+        " Use the default set of separators with a few customizations
+        let g:airline_left_sep='›'  " Slightly fancier than '>'
+        let g:airline_right_sep='‹' " Slightly fancier than '<'
+    endif
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
