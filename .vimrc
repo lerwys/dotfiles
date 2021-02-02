@@ -221,6 +221,9 @@ au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 " Associate .in files with texinfo
 autocmd BufRead,BufNewFile *.in set filetype=texinfo
 
+" Switch to current file directory when new buffer is opened
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
