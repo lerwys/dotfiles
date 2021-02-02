@@ -173,6 +173,10 @@ set expandtab         " tab stops become spaces
 set wildmode=longest,list,full " filename auto-completion works bash-like
 set wildmenu " when hits to complete full name, shows list of filenames
 
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 " turn paste mode on and off with F8
 set pastetoggle=<F8>
 
