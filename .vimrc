@@ -76,12 +76,17 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'integralist/vim-mypy'
 
+" Color plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'spf13/vim-colors'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
 
 " popup menu with clearer colors
 " hi Pmenu ctermfg=Black ctermbg=White
@@ -98,6 +103,14 @@ syntax on
 
 " for .sh files, always presume bash
 let g:is_bash=1
+
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="normal"
+    color solarized        " Load a colorscheme
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC SETTINGS
