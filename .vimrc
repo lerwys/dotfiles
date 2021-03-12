@@ -80,6 +80,10 @@ Plugin 'integralist/vim-mypy'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'spf13/vim-colors'
 
+if executable('ctags')
+    Plugin 'majutsushi/tagbar'
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -434,6 +438,14 @@ nnoremap <Leader><Space> :call ToggleAllFolds()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <Leader>a :call SyntaxAttr()<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TAGBAR
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory(expand("~/.vim/bundle/tagbar/"))
+    nnoremap <silent> <leader>tt :TagbarToggle<CR>
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
