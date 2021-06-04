@@ -45,7 +45,7 @@ Plugin 'tyru/open-browser-github.vim'
 " Editing plugins
 Plugin 'mbbill/undotree'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'spf13/vim-autoclose'
 Plugin 'Shougo/deoplete.nvim'
 
@@ -369,8 +369,19 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 
+" Extra directories
+let g:syntastic_c_include_dirs = [
+            \ expand("~/epics/epics-base/include"),
+            \ expand("~/epics/epics-base/include/os/Linux"),
+            \ expand("~/epics/epics-base/include/compiler/gcc"),
+            \ expand("~/epics/pvDataCPP/include"),
+            \ expand("~/epics/pvAccessCPP/include"),
+            \ expand("~/epics/pvaClientCPP/include"),
+            \ expand("~/epics/pvDataCPP/include")
+            \ ]
+let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DEOPLETE CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
