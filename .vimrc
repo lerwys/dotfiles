@@ -396,6 +396,7 @@ let g:autoclose_vim_commentmode = 1
 " UNDOTREE CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 set backup                  " Backups are nice ...
 if has('persistent_undo')
