@@ -48,6 +48,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'spf13/vim-autoclose'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'godlygeek/tabular'
 
 if !has('nvim')
   Plugin 'roxma/nvim-yarp'
@@ -386,6 +387,28 @@ let g:syntastic_cpp_include_dirs = g:syntastic_c_include_dirs
 " DEOPLETE CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TABULAR CONFIGURATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if isdirectory(expand("~/.vim/bundle/tabular"))
+    nmap <Leader>a& :Tabularize /&<CR>
+    vmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    nmap <Leader>a=> :Tabularize /=><CR>
+    vmap <Leader>a=> :Tabularize /=><CR>
+    nmap <Leader>a: :Tabularize /:<CR>
+    vmap <Leader>a: :Tabularize /:<CR>
+    nmap <Leader>a:: :Tabularize /:\zs<CR>
+    vmap <Leader>a:: :Tabularize /:\zs<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    vmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a,, :Tabularize /,\zs<CR>
+    vmap <Leader>a,, :Tabularize /,\zs<CR>
+    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCLOSE CONFIGURATION
