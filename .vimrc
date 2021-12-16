@@ -49,6 +49,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'spf13/vim-autoclose'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'godlygeek/tabular'
+Plugin 'easymotion/vim-easymotion'
 
 if !has('nvim')
   Plugin 'roxma/nvim-yarp'
