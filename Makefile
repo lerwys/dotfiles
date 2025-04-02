@@ -1,13 +1,16 @@
 .PHONY: python_deps system_deps dir_deps setup_vundle vimrc setup_plugins
 
-all: python_deps system_deps dir_deps setup_vundle vimrc setup_plugins
+all: system_deps dir_deps setup_vundle vimrc setup_plugins
 
 python_deps:
 	@echo "Installing python dependencies..."
 	pip3 install -r requirements.txt --user
 
 system_deps:
-	sudo apt install -y exuberant-ctags
+	sudo apt install -y \
+		exuberant-ctags \
+		python3-neovim \
+		python3-mypy
 
 dir_deps:
 	@echo "Creating .vim directories..."
