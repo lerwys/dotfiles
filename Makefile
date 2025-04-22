@@ -1,6 +1,6 @@
 .PHONY: python_deps system_deps dir_deps setup_vundle vimrc setup_plugins
 
-all: system_deps dir_deps setup_vundle vimrc setup_plugins
+all: system_deps dir_deps setup_vundle setup_stow setup_plugins
 
 python_deps:
 	@echo "Installing python dependencies..."
@@ -25,7 +25,10 @@ setup_vundle:
 
 vimrc:
 	@echo "Copying .vimrc file..."
-	install -m 755 .vimrc ~/
+	install -m 755 .vimrc ~/o
+
+setup_stow:
+	stow .
 
 setup_plugins:
 	@echo "Installing plugins..."
