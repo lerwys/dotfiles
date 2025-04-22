@@ -4,3 +4,6 @@
 ^/README.md
 ^/references
 ^/.stowrc
+^/Makefile
+^/rc.lua
+^/requirements.txt
