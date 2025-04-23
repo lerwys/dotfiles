@@ -52,7 +52,6 @@
     # o = checkout
     o = checkout
     om = ! git checkout $(git main-branch)
-    of = checkout -f
 
     # a = add
     a = add
