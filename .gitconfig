@@ -12,6 +12,8 @@
 	ui = true
 [tool]
 	diff = meld
+[url "git@gitlab-ssh.lbl.gov"]
+	insteadOf = git@gitlab.lbl.gov
 [alias]
     # st = status
     st = status
