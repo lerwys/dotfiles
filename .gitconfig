@@ -51,6 +51,7 @@
 
     # o = checkout
     o = checkout
+    ot = "! f() { BRANCH=$1; git checkout --track origin/$BRANCH; }; f"
     om = ! git checkout $(git main-branch)
 
     # a = add
