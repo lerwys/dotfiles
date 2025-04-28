@@ -10,7 +10,8 @@ system_deps:
 	sudo apt install -y \
 		exuberant-ctags \
 		python3-neovim \
-		python3-mypy
+		python3-mypy \
+		stow
 
 dir_deps:
 	@echo "Creating .vim directories..."
