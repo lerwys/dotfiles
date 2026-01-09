@@ -82,6 +82,9 @@ Plugin 'integralist/vim-mypy'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'spf13/vim-colors'
 
+" Variants of a word
+Plugin 'tpope/vim-abolish'
+
 if executable('ctags')
     Plugin 'majutsushi/tagbar'
 endif
