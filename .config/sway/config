@@ -20,6 +20,10 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu rofi -show drun
+# Swaylock
+set $lock swaylock -c 000000
+# Manual lock
+set $lockman exec bash ~/.config/sway/lockman.sh
 
 include /etc/sway/config-vars.d/*
 
@@ -48,7 +52,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000'
+    timeout 300 $lock \
+    timeout 270 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep $lock
 
 ### Input configuration
 #
@@ -76,6 +83,9 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Manual lock
+    bindsym $mod+p exec $lockman
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
