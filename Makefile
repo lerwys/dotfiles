@@ -1,10 +1,6 @@
-.PHONY: python_deps sway system_deps dir_deps setup_vundle vimrc stow setup_plugins
+.PHONY: sway system_deps dir_deps setup_vundle vimrc stow setup_plugins
 
 all: system_deps sway dir_deps setup_vundle stow setup_plugins
-
-python_deps:
-	@echo "Installing python dependencies..."
-	pip3 install -r requirements.txt --user
 
 system_deps:
 	sudo apt update && \
