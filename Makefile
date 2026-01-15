@@ -20,7 +20,9 @@ sway:
 		waybar \
 		xwayland \
 		rofi \
-		alacritty
+		alacritty \
+		grim \
+		slurp
 
 dir_deps:
 	@echo "Creating .vim directories..."
