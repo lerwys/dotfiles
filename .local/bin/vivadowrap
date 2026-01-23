@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+VIVADO_VER=${1}
+VIVADO_ROOT_PATH="/media/Xilinx/Vivado/${VIVADO_VER}"
+
+VIVADO_PATH="${VIVADO_ROOT_PATH}/Vivado"
+VITIS_PATH="${VIVADO_ROOT_PATH}/Vitis"
+
+# Get the internal version number (could be different than VIVADO_VER)
+VIVADO_PATH_VERSION=$(find "${VIVADO_PATH}" -mindepth 1 -maxdepth 1 -type d -print -quit)
+VIVADO_INTERNAL_VERSION=$(basename ${VIVADO_PATH_VERSION})
+
+# Get the internal version number (could be different than VITIS_VER)
+VITIS_PATH_VERSION=$(find "${VITIS_PATH}" -mindepth 1 -maxdepth 1 -type d -print -quit)
+VITIS_INTERNAL_VERSION=$(basename ${VITIS_PATH_VERSION})
+
+export VIVADO_BIN=${VIVADO_PATH}/${VIVADO_INTERNAL_VERSION}/bin
+export SDK_BIN=${VITIS_PATH}/${VITIS_INTERNAL_VERSION}/bin
+export SDK_ARM_BIN=${SDK_BIN}/../gnu/aarch64/lin/aarch64-none/bin
+export SDK_MB_BIN=${SDK_BIN}/../gnu/microblaze/lin/bin
+
+export PATH=${VIVADO_BIN}:${SDK_BIN}:${SDK_ARM_BIN}:${SDK_MB_BIN}:${PATH}
+
+shift 1
+
+# Fix for Wayland
+_JAVA_AWT_WM_NONREPARENTING=1 vivado "$@"
