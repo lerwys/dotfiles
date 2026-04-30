@@ -37,7 +37,7 @@ setup_vundle:
 
 vimrc:
 	@echo "Copying .vimrc file..."
-	install -m 755 .vimrc ~/o
+	install -m 755 .vimrc ~/
 
 stow:
 	stow -vv .
