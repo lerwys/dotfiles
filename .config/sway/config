@@ -214,6 +214,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bindsym $mod+o workspace back_and_forth
 
 #
 # Status Bar:
