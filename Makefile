@@ -1,4 +1,4 @@
-.PHONY: sway system_deps dir_deps setup_vundle vimrc stow setup_plugins
+.PHONY: sway system_deps stow
 
 all: system_deps stow
 
