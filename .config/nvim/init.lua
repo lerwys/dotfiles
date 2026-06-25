@@ -179,6 +179,12 @@ do
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+  -- Change tabs
+  vim.keymap.set('n', '<C-t><up>', '<cmd>tabr<CR>')
+  vim.keymap.set('n', '<C-t><down>', '<cmd>tabl<CR>')
+  vim.keymap.set('n', '<C-t><left>', '<cmd>tabp<CR>')
+  vim.keymap.set('n', '<C-t><right>', '<cmd>tabn<CR>')
+
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
   vim.diagnostic.config {
