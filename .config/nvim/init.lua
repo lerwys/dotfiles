@@ -389,18 +389,89 @@ do
   -- change the command under that to load whatever the name of that colorscheme is.
   --
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
+  -- vim.pack.add { gh 'folke/tokyonight.nvim' }
+  -- ---@diagnostic disable-next-line: missing-fields
+  -- require('tokyonight').setup {
+  --   styles = {
+  --     comments = { italic = false }, -- Disable italics in comments
+  --   },
+  -- }
+  --
+  vim.pack.add { gh 'maxmx03/solarized.nvim' }
+
+  vim.o.background = 'dark'
+
+  -- default config for solarized
+  require('solarized').setup({
+    transparent = {
+      enabled = false,
+      pmenu = true,
+      normal = true,
+      normalfloat = true,
+      neotree = true,
+      nvimtree = true,
+      whichkey = true,
+      telescope = true,
+      lazy = true,
     },
-  }
+    on_highlights = nil,
+    on_colors = nil,
+    palette = 'solarized', -- solarized (default) | selenized
+    variant = 'winter', -- "spring" | "summer" | "autumn" | "winter" (default)
+    error_lens = {
+      text = false,
+      symbol = false,
+    },
+    styles = {
+      enabled = true,
+      types = {},
+      functions = {},
+      parameters = {},
+      comments = {},
+      strings = {},
+      keywords = {},
+      variables = {},
+      constants = {},
+    },
+    plugins = {
+      treesitter = true,
+      lspconfig = true,
+      navic = true,
+      cmp = true,
+      indentblankline = true,
+      indentmini = true,
+      neotree = true,
+      nvimtree = true,
+      whichkey = true,
+      dashboard = true,
+      gitsigns = true,
+      telescope = true,
+      noice = true,
+      hop = true,
+      ministatusline = true,
+      minitabline = true,
+      ministarter = true,
+      minicursorword = true,
+      notify = true,
+      rainbowdelimiters = true,
+      bufferline = true,
+      lazy = true,
+      rendermarkdown = true,
+      ale = true,
+      coc = true,
+      leap = true,
+      alpha = true,
+      yanky = true,
+      gitgutter = true,
+      mason = true,
+      flash = true,
+    },
+  })
 
   -- Load the colorscheme here.
   -- Like many other themes, this one has different styles, and you could load
   -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  vim.cmd.colorscheme 'tokyonight-night'
+  vim.cmd.colorscheme 'solarized'
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
