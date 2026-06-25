@@ -95,8 +95,8 @@ do
   -- Set <space> as the leader key
   -- See `:help mapleader`
   --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-  vim.g.mapleader = ' '
-  vim.g.maplocalleader = ' '
+  vim.g.mapleader = ','
+  vim.g.maplocalleader = ','
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = false
@@ -113,7 +113,7 @@ do
   -- vim.o.relativenumber = true
 
   -- Enable mouse mode, can be useful for resizing splits for example!
-  vim.o.mouse = 'a'
+  vim.o.mouse = ''
 
   -- Don't show the mode, since it's already in the status line
   vim.o.showmode = false
@@ -898,7 +898,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'systemverilog' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
