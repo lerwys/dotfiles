@@ -134,6 +134,15 @@ do
   vim.o.ignorecase = true
   vim.o.smartcase = true
 
+  -- Convert tabs to spaces
+  vim.o.expandtab = true
+  -- Insert 4 spaces per tab
+  vim.o.tabstop = 4
+  -- Number of chars per indentation
+  vim.o.shiftwidth = 4
+  -- Number of spaces that a Tab counters when inserting
+  vim.o.softtabstop = 4
+
   -- Keep signcolumn on by default
   vim.o.signcolumn = 'yes'
 
@@ -165,7 +174,7 @@ do
   vim.o.cursorline = true
 
   -- Minimal number of screen lines to keep above and below the cursor.
-  vim.o.scrolloff = 10
+  vim.o.scrolloff = 20
 
   -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
   -- instead raise a dialog asking if you wish to save the current file(s)
@@ -979,7 +988,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'systemverilog' }
+  local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'systemverilog', 'matlab' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
