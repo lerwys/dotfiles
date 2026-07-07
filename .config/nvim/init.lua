@@ -98,6 +98,15 @@ do
   vim.g.mapleader = ','
   vim.g.maplocalleader = ','
 
+  vim.filetype.add({
+    extension = {
+      v = 'verilog',
+      vh = 'verilog',
+      sv = 'systemverilog',
+      svh = 'systemverilog',
+    },
+  })
+
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = false
 
@@ -790,6 +799,10 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    verible = {
+      cmd = { 'verible-verilog-ls', '--rules_config_search' }
+    },
+
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -889,6 +902,8 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      verilog = { 'verible' },
+      systemverilog = { 'verible' },
     },
   }
 
@@ -991,7 +1006,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'systemverilog', 'matlab' }
+  local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'verilog', 'matlab' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
