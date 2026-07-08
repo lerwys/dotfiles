@@ -1005,6 +1005,25 @@ do
   -- NOTE: You can also specify a branch or a specific commit
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'TSUpdate',
+    callback = function()
+      local ts_parsers = require('nvim-treesitter.parsers')
+
+      -- Register the Verilog parser
+      ts_parsers.verilog = {
+        install_info = {
+          url = 'https://github.com/tree-sitter/tree-sitter-verilog',
+          files = { 'src/parser.c' },
+          branch = 'master',
+        },
+      }
+    end,
+  })
+
+  -- Trigger the event immediately so the auto-installer below recognizes them on boot
+  vim.api.nvim_exec_autocmds('User', { pattern = 'TSUpdate' })
+
   -- Ensure basic parsers are installed
   local parsers = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vhdl', 'verilog', 'matlab' }
   require('nvim-treesitter').install(parsers)
