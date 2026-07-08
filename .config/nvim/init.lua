@@ -179,6 +179,9 @@ do
   vim.o.list = true
   vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+  vim.o.wildmenu = true
+  vim.opt.wildmode = "longest,list,full"
+
   -- Preview substitutions live, as you type!
   vim.o.inccommand = 'split'
 
@@ -940,6 +943,8 @@ do
   -- [[ Autocomplete Engine ]]
   vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
   require('blink.cmp').setup {
+    cmdline = { enabled = false },
+
     keymap = {
       -- 'default' (recommended) for mappings similar to built-in completions
       --   <c-y> to accept ([y]es) the completion.
