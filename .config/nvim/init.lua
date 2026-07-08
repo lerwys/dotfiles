@@ -884,6 +884,11 @@ do
       local enabled_filetypes = {
         -- lua = true,
         -- python = true,
+        verilog = true,
+        systemverilog = true,
+        vhdl = true,
+        c = true,
+        cpp = true
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -902,8 +907,11 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      verilog = { 'verible' },
-      systemverilog = { 'verible' },
+      -- verilog = { 'verible' },
+      -- systemverilog = { 'verible' },
+      -- Use the "_" filetype to run formatters on filetypes that don't
+      -- have other formatters configured.
+      ["_"] = { "trim_whitespace" },
     },
   }
 
