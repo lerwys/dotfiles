@@ -497,6 +497,8 @@ do
   -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
   vim.cmd.colorscheme 'solarized'
 
+  vim.api.nvim_set_hl(0, 'MatchParen', { fg = '#dc322f', bold = true, underline = true, bg = 'none' })
+
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }
