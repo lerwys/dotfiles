@@ -806,7 +806,11 @@ do
     -- ts_ls = {},
 
     verible = {
-      cmd = { 'verible-verilog-ls', '--rules_config_search' }
+      cmd = {
+        'verible-verilog-ls',
+        '--rules_config_search',
+        '--rules=-no-tabs',
+      },
     },
 
     stylua = {}, -- Used to format Lua code
